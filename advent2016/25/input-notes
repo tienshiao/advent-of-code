@@ -1,0 +1,33 @@
+cpy a d       ; d = a
+cpy 14 c      ; c = 14
+cpy 182 b     ; b = 182
+
+inc d         ; d++;                ; => d += b  => d += (182 * 14)
+dec b         ; b--;
+jnz b -2      ; if (b != 0) goto 4
+dec c         ; c--;
+jnz c -5      ; if (c != 0) goto 3
+
+cpy d a       ; a = d = input + (182 * 14)
+jnz 0 0       ; nop
+cpy a b       ; b = a     => b = a
+cpy 0 a       ; a = 0
+cpy 2 c       ; c = 2
+jnz b 2       ; if (b != 0) goto 16
+jnz 1 6       ;   a = b / 2, c = remainder
+dec b         ; b--
+dec c         ; c--    =>
+jnz c -4      ; if (c != 0) goto 14
+inc a         ; a++    => a = 3
+jnz 1 -7      ; goto 13
+
+cpy 2 b       ; b = 2, c = 0 or 1, a = (input + (182 * 14)) / 2
+jnz c 2
+jnz 1 4
+dec b
+dec c
+jnz 1 -4
+jnz 0 0
+out b
+jnz a -19
+jnz 1 -21
