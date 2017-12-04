@@ -2,7 +2,7 @@ const fs = require('fs');
 const _ = require('lodash');
 
 const string = fs.readFileSync('input1', 'utf8');
-/const lines = string.split('\n');
+const lines = string.split('\n');
 //const lines = [ 'aa bb cc dd ee aaa' ];
 
 
