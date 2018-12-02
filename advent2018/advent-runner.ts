@@ -1,7 +1,6 @@
-#!/usr/bin/env node
-const chalk = require('chalk');
-const fs = require('fs');
-const program = require('commander');
+import chalk from 'chalk';
+import * as fs from 'fs';
+import * as program from 'commander';
 
 program
   .option('-d, --day [day]', 'Specify which day. Defaults to the latest day.')
@@ -18,12 +17,15 @@ async function main() {
     day = numberToString(program.day);
   } else {
     for (let i = 25; i > 0; i--) {
-      if (fs.existsSync(numberToString(i))) {
-        day = numberToString(i);
+      if (fs.existsSync(numberToString(String(i)))) {
+        day = numberToString(String(i));
+        break;
       }
     }
     if (!day) {
       console.log('No suitable day found.')
+      day = '00'; // So TypeScript doesn't complain
+      process.exit();
     }
   }
 
@@ -74,7 +76,7 @@ async function main() {
   }
 }
 
-function numberToString(input) {
+function numberToString(input: string) {
   let day;
   if (parseInt(input) < 10) {
     day = '0' + parseInt(input);
@@ -84,9 +86,9 @@ function numberToString(input) {
   return day;
 }
 
-function loadFile(file) {
+function loadFile(file: string) {
   const string = fs.readFileSync(file, 'utf8');
-  const lines = string.split('\n');
+  const lines = string.trim().split('\n');
   let json;
   try {
     json = require(file);
@@ -98,7 +100,7 @@ function loadFile(file) {
   }
 }
 
-async function run(day, part, file) {
+async function run(day: string, part: string, file: string) {
   const module = require(`./${day}`);
   const func = module[parseInt(part) - 1];
   const input = loadFile(`${day}/${file}`);

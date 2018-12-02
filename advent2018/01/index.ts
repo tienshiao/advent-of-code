@@ -1,8 +1,10 @@
-async function part1(input) {
+import { Input } from '../interfaces';
+
+async function part1(input: Input) {
   return input.lines.reduce((sum, curr) => sum + Number(curr), 0);
 }
 
-async function part2(input) {
+async function part2(input: Input) {
   const seen = [true];
   let sum = 0;
   let i = 0;
@@ -17,7 +19,7 @@ async function part2(input) {
   }
 }
 
-module.exports = [
+export default [
   part1,
   part2
 ];
