@@ -19,7 +19,7 @@ async function part2(input: Input) {
   }
 }
 
-export default [
+module.exports = [
   part1,
   part2
 ];
