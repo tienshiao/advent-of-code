@@ -1,9 +1,9 @@
 
 export default class TwoDimArray<T> {
-  private data: T[] = [];
-  private width = 0;
-  private height = 0;
-  private default: T;
+  public data: T[] = [];
+  public width = 0;
+  public height = 0;
+  public default: T;
 
   constructor(width: number, height: number, def: T) {
     this.width = width;
@@ -12,7 +12,7 @@ export default class TwoDimArray<T> {
   }
 
   public get(x: number, y: number) {
-    return this.data[y * this.width + x] || 0;
+    return this.data[y * this.width + x] || this.default;
   }
 
   public set(x: number, y: number, value: T) {

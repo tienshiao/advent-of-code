@@ -38,7 +38,7 @@ async function main() {
     process.exit();
   } else {
     part = program.part;
-    if (part != '1' && part != '2') {
+    if (part != '1' && part != '2' && part != '3' && part != '4') {
       console.log('Part is required. Please specify "1" or "2"');
       process.exit();
     }
@@ -94,7 +94,7 @@ function loadFile(file: string) {
     json = require(file);
   } catch (e) {}
   return {
-    string,
+    raw: string,
     lines,
     json
   }
