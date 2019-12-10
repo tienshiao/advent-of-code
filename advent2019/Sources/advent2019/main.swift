@@ -28,7 +28,8 @@ let solutions = [
     "201906",
     "201907",
     "201908",
-    "201909"
+    "201909",
+    "201910"
 ]
 
 let solutionName = CommandLine.arguments[1] == "last" ? solutions.last! : CommandLine.arguments[1]
