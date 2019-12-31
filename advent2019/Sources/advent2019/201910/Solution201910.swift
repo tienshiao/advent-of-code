@@ -97,9 +97,6 @@ struct Vector: Hashable {
 
         var counter = 1
 
-        let oldVector = (0, 1 - 3)
-        let newVector = (1, 0 - 3)
-
         while true {
             var minAngle = 10.0
             var next = (0, 0)

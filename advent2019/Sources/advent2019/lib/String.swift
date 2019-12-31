@@ -33,6 +33,17 @@ extension String {
             }
         }
     }
+
+    func isUpperCaseLetter() -> Bool {
+        guard self.count == 1 else {
+            return false
+        }
+
+        let matchesArr = self.matchingStrings(regex: #"^([A-Z])$"#)
+        return matchesArr.count == 1
+    }
 }
+
+extension String: Error {}
 
 

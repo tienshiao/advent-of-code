@@ -1,0 +1,50 @@
+L 6     A
+R 12
+L 6
+L 8
+L 8
+
+L 6     A
+R 12
+L 6
+L 8
+L 8
+
+L 6     B
+R 12    ; Line 21
+R 8
+L 8
+
+L 4     C
+L 4
+L 6
+
+L 6     B
+R 12
+R 8
+L 8
+
+L 6     A
+R 12    ; Line 29
+L 6
+L 8
+L 8
+
+L 4     C
+L 4
+L 6     ; Line 31
+
+L 6    B
+R 12
+R 8
+L 8
+
+L 4      C
+L 4
+L 6
+
+L 6       A
+R 12
+L 6
+L 8
+L 8
