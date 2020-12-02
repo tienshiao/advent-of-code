@@ -2,7 +2,7 @@
 
 ## How To Run
 ```
-> go run cmd/<day>.go -part=2 -input=test-1.txt
+> go run cmd/<day>/<day>.go -part=2 -input=test-1.txt
 ```
 
 * day = what day
