@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 )
 
@@ -23,6 +24,23 @@ func (o *Options) GetInputString() string {
 
 func (o *Options) GetInputStringArray() []string {
 	return strings.Split(strings.TrimSpace(o.Data), "\n")
+}
+
+func (o *Options) GetInputInt64Array() ([]int64, error) {
+  strArr := o.GetInputStringArray()
+
+  intArr := make([]int64, len(strArr))
+
+  for index, val := range strArr {
+    intval, err := strconv.ParseInt(val, 10, 64)
+    if err != nil {
+      return intArr, err
+    }
+
+    intArr[index] = intval
+  }
+
+  return intArr, nil
 }
 
 func ParseOptions() (*Options, error) {
