@@ -27,20 +27,30 @@ func (o *Options) GetInputStringArray() []string {
 }
 
 func (o *Options) GetInputInt64Array() ([]int64, error) {
-  strArr := o.GetInputStringArray()
+	strArr := o.GetInputStringArray()
 
-  intArr := make([]int64, len(strArr))
+	intArr := make([]int64, len(strArr))
 
-  for index, val := range strArr {
-    intval, err := strconv.ParseInt(val, 10, 64)
-    if err != nil {
-      return intArr, err
-    }
+	for index, val := range strArr {
+		intval, err := strconv.ParseInt(val, 10, 64)
+		if err != nil {
+			return intArr, err
+		}
 
-    intArr[index] = intval
-  }
+		intArr[index] = intval
+	}
 
-  return intArr, nil
+	return intArr, nil
+}
+
+func (o *Options) GetInputStringGrid() [][]string {
+	grid := [][]string{}
+	lines := o.GetInputStringArray()
+	for _, line := range lines {
+		grid = append(grid, strings.Split(line, ""))
+	}
+
+	return grid
 }
 
 func ParseOptions() (*Options, error) {
