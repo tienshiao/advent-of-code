@@ -1,0 +1,25 @@
+acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab
+abcdefg bcdef acdfg abcdf abd abcdef bcdefg abef abcdeg ab
+
+1 = ab
+7 = abd -> top = d
+4 = abef
+8 = abcdefg
+
+9 = 7 | 4 + ? -> abdef + ? -> abdef + c -> bottom = 9
+
+top = 8
+middle = 7
+bottom = 7
+topleft = 6
+topright = 8
+bottomleft = 4
+bottomright = 9
+
+top
+bottom
+topleft
+bottomleft
+bottomright
+topright - from count and top
+middle - from count and bottom
